@@ -15,15 +15,15 @@ const Userform = () => {
         <div className="wrapper">
         <h1 style={{align: "center"}}>{location.state["label"]}</h1>
         <Form>
-            <Form.Control as="select">
+            <Form.Control as="select" multiple={location.state["selectType"] === 'multi'}>
             {    
                 choices.map((choice,i) => {
-                    return (<option key={i} value={choice.value}>{choice}</option>)
+                    return (<option key={i}>{choice}</option>)
                 })
             }
             </Form.Control>
-         <SubmitButton title="Submit"/>
-         <SubmitButton title="Back" onClickFunc={goBack}/>
+         <SubmitButton title="Submit" variant={"primary"}/>
+         <SubmitButton title="Back" onClickFunc={goBack} variant={"danger"}/>
         </Form>
         
       </div>

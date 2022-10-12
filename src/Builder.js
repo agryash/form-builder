@@ -7,7 +7,10 @@ import './Builder.css'
 
 
 const Builder = () => {
-    const [ formFields, setFormFields ] = useState({})
+    const [ formFields, setFormFields ] = useState({
+        selectType: 'multi',
+        displayAlpha: 'alphabetical'
+    })
     const [ errors, setErrors ] = useState({})
     const navigate = useNavigate();
 
@@ -51,14 +54,18 @@ const Builder = () => {
     }
 
     const adjustDefault = () => {
-        const { choices, defaultValue } = formFields;
+        const { choices, defaultValue, displayAlpha } = formFields;
         if(choices.includes(defaultValue)){
             const index = choices.indexOf(defaultValue);
             if (index > -1) { 
                 choices.splice(index, 1);
             }
         }
-        choices.unshift(defaultValue);
+        if(displayAlpha === 'alphabetical'){
+            choices.sort();
+        }
+        if(defaultValue!=='')
+            choices.unshift(defaultValue);
     }
 
     const doesContainDuplicates = (choicesArray) => {
@@ -95,6 +102,7 @@ const Builder = () => {
         localStorage.setItem("formFields", JSON.stringify({}));
         setFormFields({
             label: '',
+            choicesText: ''
         })
     }
 
