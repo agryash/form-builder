@@ -100,7 +100,6 @@ const Builder = () => {
 
     return (
         <div className='wd-builder'>
-            {JSON.stringify(formFields, 0, 2)}
             <h1>Form Builder</h1>
             <Form>
                 <Form.Group>
