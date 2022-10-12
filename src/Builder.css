@@ -1,0 +1,44 @@
+.wd-builder{
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+}
+
+.button-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+@media only screen and (max-width: 600px) {
+    button{
+        width: 100px;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    button{
+        width: 150px;
+    }
+}
+
+
+@media only screen and (min-width: 768px) {
+    button{
+        width: 200px;
+    }
+}
+
+
+@media only screen and (min-width: 992px) {
+    button{
+        width: 250px;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    button{
+        width: 300px;
+    }
+}
